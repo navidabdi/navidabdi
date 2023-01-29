@@ -56,6 +56,7 @@
 <!-- YOUTUBE:END -->
 ---
 
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=navidabdi&label=Profile%20views&color=0e75b6&style=flat" alt="navidabdi" /> </p>
 
 [website]: https://webkima.com
 [course]: https://www.youtube.com/NavidDev
