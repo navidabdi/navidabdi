@@ -53,6 +53,11 @@
 
 ### 📺 Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [Build Your Own ChatGPT AI App in JavaScript | OpenAI, Machine Learning](https://www.youtube.com/watch?v=TjLhj38gQ0M)
+- [Complete Responsive Blogger Website Using HTML/CSS](https://www.youtube.com/watch?v=cOBFdO2z5d0)
+- [How To Create a Responsive Top Navigation Menu](https://www.youtube.com/watch?v=EBwpEVudjSk)
+- [Build a Responsive Landing Page with Html Css Javascript](https://www.youtube.com/watch?v=MjIh9NqG1fU)
+- [Create Underline Link Hover Effect – CSS Only](https://www.youtube.com/watch?v=aGJQiPppuig)
 <!-- YOUTUBE:END -->
 ---
 
