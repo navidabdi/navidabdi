@@ -1,6 +1,6 @@
 # Hi there, I'm Nabi - aka [Navid Dev][youtube] 👋 
 
-[![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCxd6yE9578AmHr1DIRAnJdA?logo=youtube&logoColor=red&style=for-the-badge)][youtube]
+<!-- [![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCxd6yE9578AmHr1DIRAnJdA?logo=youtube&logoColor=red&style=for-the-badge)][youtube] -->
 [![Website](https://img.shields.io/website?label=webkima.com&style=for-the-badge&url=https%3A%2F%2Fwebkima.com)](https://webkima.com)
 
 ## I'm a Software Engineer, and a Teacher!!
