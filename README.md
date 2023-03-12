@@ -53,11 +53,11 @@
 
 ### 📺 Latest YouTube Videos
 <!-- YOUTUBE:START -->
-- [How to Create Custom Gutenberg Blocks - Step-by-Step Development Guide &lpar;Part 2&rpar;](https://www.youtube.com/watch?v=jRk0byIivDY)
-- [How to Create Custom Gutenberg Blocks - Step-by-Step Development Guide &lpar;Part 1&rpar;](https://www.youtube.com/watch?v=LaKX-1QAUvA)
-- [Build Your Own ChatGPT AI App in JavaScript | OpenAI, Machine Learning](https://www.youtube.com/watch?v=TjLhj38gQ0M)
-- [Complete Responsive Blogger Website Using HTML/CSS](https://www.youtube.com/watch?v=cOBFdO2z5d0)
-- [How To Create a Responsive Top Navigation Menu](https://www.youtube.com/watch?v=EBwpEVudjSk)
+- [How to Create Custom Gutenberg Blocks 😍 Work with block.json &lpar;Part 7&rpar;](https://www.youtube.com/watch?v=KF3DoJoOkZo)
+- [How to Create Custom Gutenberg Blocks - Install Boilerplate &lpar;Part 6&rpar;](https://www.youtube.com/watch?v=UpaG3cMskA8)
+- [How to Create Custom Gutenberg Blocks 😎 Code Structure Step-by-Step &lpar;Part 5&rpar;](https://www.youtube.com/watch?v=7Vk2TBTVn94)
+- [Create Your First Custom Gutenberg Block | Step-by-Step &lpar;Part 4&rpar;](https://www.youtube.com/watch?v=AD5v10if7d0)
+- [Learn How to Set Up VS Code for Creating Custom Gutenberg Blocks - Step-by-Step &lpar;Part 3&rpar;](https://www.youtube.com/watch?v=xlSyt-kXT-c)
 <!-- YOUTUBE:END -->
 ---
 
