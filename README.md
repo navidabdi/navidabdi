@@ -53,11 +53,11 @@
 
 ### 📺 Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [Real Time AI Image Generation with #ai #aiart](https://www.youtube.com/watch?v=2tmEpZHOoUg)
+- [Real Time AI Image Generation with #leonardoai #ai](https://www.youtube.com/watch?v=4Pg9kfrXTVo)
+- [angry dragon in red glossy cyborg custom  #ai #memes](https://www.youtube.com/watch?v=dshyqFqKv4c)
+- [Fire Ant in White Glossy Cyborg Custom #ai_art #ai](https://www.youtube.com/watch?v=OUqXnoaWXUI)
 - [Real time AI image generation | happy dog](https://www.youtube.com/watch?v=y_p4i9Ln5wc)
-- [How to Add Block Settings to Settings Sidebar &lpar;Inspector Controls&rpar;](https://www.youtube.com/watch?v=c4aspXfnuWk)
-- [How to Work with Attributes in Gutenberg Blocks 😎 &lpar;Part 8&rpar;](https://www.youtube.com/watch?v=B4Y1lIzA1Sg)
-- [How to Create Custom Gutenberg Blocks 😍 Work with block.json &lpar;Part 7&rpar;](https://www.youtube.com/watch?v=KF3DoJoOkZo)
-- [How to Create Custom Gutenberg Blocks - Install Boilerplate &lpar;Part 6&rpar;](https://www.youtube.com/watch?v=UpaG3cMskA8)
 <!-- YOUTUBE:END -->
 ---
 
