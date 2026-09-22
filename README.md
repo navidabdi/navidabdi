@@ -1,70 +1,61 @@
-# Hi there, I'm Nabi - aka [Navid Dev][youtube] 👋 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/berlin-night.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/berlin-day.svg">
+  <img alt="Navidabdi-Straße, 10405 Berlin — a street built from my GitHub history: one building per year, height set by contributions" src="assets/berlin-night.svg" width="880">
+</picture>
 
-<!-- [![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCxd6yE9578AmHr1DIRAnJdA?logo=youtube&logoColor=red&style=for-the-badge)][youtube] -->
-[![Website](https://img.shields.io/website?label=webkima.com&style=for-the-badge&url=https%3A%2F%2Fwebkima.com)](https://webkima.com)
+## Hi, I'm Nabi
 
-## I'm a Software Engineer, and a Teacher!!
+Independent software engineer. I build for the web — mostly PHP and WordPress, with
+JavaScript and React where they earn their place. Nine years on GitHub, and most of what
+I ship lives behind a client login, so the street above counts the work rather than
+showing it: one building per year, height set by contributions.
 
-- 🔭 Check out my: [Tutorials!][youtube]
-- 🌱 I’m currently learning everything 🤣
-- 👯 I’m looking to collaborate with other content creators
-- 🥅 2023 Goals: Learn more about web3 and AI
-- ⚡ Fun fact: I love to learn new things!
+- **[webkima](https://webkima.com)** — my studio. WordPress engineering, custom blocks,
+  performance work, and the occasional full rebuild.
+- **nabimakes** — a workshop journal in progress: projects, model kits, and the files to
+  make them. Built as a WordPress block theme, because of course it is.
+- **Open source** — block editor starters and teaching material, mostly for people
+  finding their way into Gutenberg.
 
-### Connect with me:
+Happy to talk about block theme architecture, getting real performance out of WordPress,
+or why your build step is slower than it needs to be.
 
-[![website](./img/globe-light.svg)](https://webkima.com#gh-light-mode-only)
-[![website](./img/globe-dark.svg)](https://webkima.com#gh-dark-mode-only)
-&nbsp;&nbsp;
-[![website](./img/youtube-light.svg)](https://youtube.com/naviddev#gh-light-mode-only)
-[![website](./img/youtube-dark.svg)](https://youtube.com/naviddev#gh-dark-mode-only)
-&nbsp;&nbsp;
-[![website](./img/linkedin-light.svg)](https://linkedin.com/in/nabiabdi#gh-light-mode-only)
-[![website](./img/linkedin-dark.svg)](https://linkedin.com/in/nabiabdi#gh-dark-mode-only)
-&nbsp;&nbsp;
-[![website](./img/instagram-light.svg)](https://instagram.com/nabiabdii#gh-light-mode-only)
-[![website](./img/instagram-dark.svg)](https://instagram.com/nabiabdii#gh-dark-mode-only)
+### Tools I reach for
 
-### Languages and Tools:
+<img alt="PHP" height="26" src="./img/php-original.svg">&nbsp;&nbsp;
+<img alt="JavaScript" height="26" src="./img/javascript.svg">&nbsp;&nbsp;
+<img alt="TypeScript" height="26" src="./img/typescript-original.svg">&nbsp;&nbsp;
+<img alt="React" height="26" src="./img/react.svg">&nbsp;&nbsp;
+<img alt="Node.js" height="26" src="./img/nodejs.svg">&nbsp;&nbsp;
+<img alt="Sass" height="26" src="./img/sass.svg">&nbsp;&nbsp;
+<img alt="CSS3" height="26" src="./img/css.svg">&nbsp;&nbsp;
+<img alt="HTML5" height="26" src="./img/html.svg">&nbsp;&nbsp;
+<img alt="GraphQL" height="26" src="./img/qraphql.svg">&nbsp;&nbsp;
+<img alt="MySQL" height="26" src="./img/mysql.svg">&nbsp;&nbsp;
+<img alt="MongoDB" height="26" src="./img/mangodb.svg">&nbsp;&nbsp;
+<img alt="Docker" height="26" src="./img/docker-original-wordmark.svg">&nbsp;&nbsp;
+<img alt="Git" height="26" src="./img/git.svg">&nbsp;&nbsp;
+<img alt="Webpack" height="26" src="./img/webpack-original-wordmark.svg">&nbsp;&nbsp;
+<img alt="Cypress" height="26" src="./img/cypress.svg">&nbsp;&nbsp;
+<img alt="VS Code" height="26" src="./img/vscode-original.svg">
 
-<img align="left" alt="Visual Studio Code" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" style="padding-right:10px;" />
-<img align="left" alt="HTML5" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" style="padding-right:10px;" />
-<img align="left" alt="CSS3" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" style="padding-right:10px;" />
-<img align="left" alt="Sass" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" style="padding-right:10px;" />
-<img align="left" alt="JavaScript" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" style="padding-right:10px;" />
-<img align="left" alt="React" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" style="padding-right:10px;" />
-<img align="left" alt="Gatsby" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatsby/gatsby-original.svg" style="padding-right:10px;" />
-<img align="left" alt="GraphQL" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" style="padding-right:10px;" />
-<img align="left" alt="Node.js" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" style="padding-right:10px;" />
-<img align="left" alt="Deno" width="26px" src="./img/deno-light.svg" style="padding-right:10px;" />
-<img align="left" alt="MongoDB" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" style="padding-right:10px;" />
-<img align="left" alt="MySQL" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" style="padding-right:10px;" />
-<img align="left" alt="Git" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" style="padding-right:10px;" />
+### Elsewhere
 
-[<img align="left" alt="GitHub" width="26px" src="https://user-images.githubusercontent.com/3369400/139447912-e0f43f33-6d9f-45f8-be46-2df5bbc91289.png" style="padding-right:10px;" />](https://www.youtube.com/playlist?list=PLkwxH9e_vrAJ0WbEsFA9W3I1W-g_BTsbt#gh-dark-mode-only)
-[<img align="left" alt="GitHub" width="26px" src="https://user-images.githubusercontent.com/3369400/139448065-39a229ba-4b06-434b-bc67-616e2ed80c8f.png" style="padding-right:10px;" />](https://www.youtube.com/playlist?list=PLkwxH9e_vrAJ0WbEsFA9W3I1W-g_BTsbt#gh-light-mode-only)
-[<img align="left" alt="Terminal" width="26px" src="./img/terminal-light.svg" />](https://www.youtube.com/playlist?list=PLkwxH9e_vrAJ0WbEsFA9W3I1W-g_BTsbt#gh-light-mode-only)
-[<img align="left" alt="Terminal" width="26px" src="./img/terminal-dark.svg" />](https://www.youtube.com/playlist?list=PLkwxH9e_vrAJ0WbEsFA9W3I1W-g_BTsbt#gh-dark-mode-only)
-
-<br />
-<br />
+[webkima.com](https://webkima.com) · [LinkedIn](https://linkedin.com/in/nabiabdi) · [Instagram](https://instagram.com/nabiabdii)
 
 ---
 
-### 📺 Latest YouTube Videos
-<!-- YOUTUBE:START -->
-- [How to Add Block Settings to Settings Sidebar &lpar;Inspector Controls&rpar;](https://www.youtube.com/watch?v=c4aspXfnuWk)
-- [How to Work with Attributes in Gutenberg Blocks 😎 &lpar;Part 8&rpar;](https://www.youtube.com/watch?v=B4Y1lIzA1Sg)
-- [How to Create Custom Gutenberg Blocks 😍 Work with block.json &lpar;Part 7&rpar;](https://www.youtube.com/watch?v=KF3DoJoOkZo)
-- [How to Create Custom Gutenberg Blocks - Install Boilerplate &lpar;Part 6&rpar;](https://www.youtube.com/watch?v=UpaG3cMskA8)
-- [How to Create Custom Gutenberg Blocks 😎 Code Structure Step-by-Step &lpar;Part 5&rpar;](https://www.youtube.com/watch?v=7Vk2TBTVn94)
-<!-- YOUTUBE:END -->
----
+<sub>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=navidabdi&label=Profile%20views&color=0e75b6&style=flat" alt="navidabdi" /> </p>
+The header is one SVG, redrawn daily by [a GitHub Action](.github/workflows/profile.yml)
+from live API data — no third-party image services, no secrets, nothing that can rate-limit
+it. Ten buildings, one per year. The Ampelmännchen is my status light, the Litfaßsäule
+carries the view count, and the M10 runs on rails set into the asphalt. It animates once on
+load and then holds still, and stops entirely if you've asked for reduced motion.
 
-[website]: https://webkima.com
-[course]: https://www.youtube.com/NavidDev
-[youtube]: https://www.youtube.com/NavidDev
-[instagram]: https://instagram.com/nabiabdii
-[linkedin]: https://linkedin.com/in/nabiabdi
+</sub>
+
+<!-- GitHub has no profile-view API. This badge is what actually counts a visit; the
+     workflow reads its number back out and prints it on the Litfaßsäule above. -->
+[![Profile views](https://komarev.com/ghpvc/?username=navidabdi&label=Profile%20views&color=0e75b6&style=flat)](https://github.com/navidabdi)
