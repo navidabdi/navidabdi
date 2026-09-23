@@ -19,6 +19,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const LOGIN = process.env.PROFILE_LOGIN || 'navidabdi';
 const TOKEN = process.env.GITHUB_TOKEN;
 const OUT = { dark: 'assets/berlin-night.svg', light: 'assets/berlin-day.svg' };
+const DATA_OUT = 'docs/data.json';
 
 if (!TOKEN) {
   console.error('GITHUB_TOKEN is required (the workflow supplies it automatically).');
@@ -111,6 +112,27 @@ console.log(`${D.name}: ${n(D.contributions)} contributions ${byYear[0][0]}–${
   + `${D.repos} repos, ${D.stars} stars, ${D.followers} followers, ${n(D.views)} views`);
 
 let changed = false;
+
+// Data file for the interactive page on GitHub Pages.
+{
+  const path = join(ROOT, DATA_OUT);
+  const next = JSON.stringify({
+    login: D.login, name: D.name, role: D.role, district: D.district,
+    repos: D.repos, stars: D.stars, followers: D.followers,
+    since: D.since, years: D.years, contributions: D.contributions,
+    views: D.views, byYear: D.byYear, updated: new Date().toISOString().slice(0, 10),
+  }, null, 2) + '\n';
+  const prev = existsSync(path) ? readFileSync(path, 'utf8') : null;
+  if (prev !== next) {
+    changed = true;
+    if (!process.argv.includes('--check')) {
+      mkdirSync(dirname(path), { recursive: true });
+      writeFileSync(path, next);
+      console.log(`wrote ${DATA_OUT}`);
+    } else console.log(`would change ${DATA_OUT}`);
+  }
+}
+
 for (const [theme, file] of Object.entries(OUT)) {
   const path = join(ROOT, file);
   const next = scene(D, theme);

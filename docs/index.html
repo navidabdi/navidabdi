@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Navidabdi-Straße — a city built from commits</title>
+<meta name="description" content="A Berlin street corner built from Nabi Abdi's GitHub history. One building per year, height set by contributions. Drag to orbit.">
+<meta property="og:title" content="Navidabdi-Straße">
+<meta property="og:description" content="A Berlin street corner built from a GitHub history. One building per year.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🏙️</text></svg>">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --paper:#f7f5f1; --raised:#fffefb; --ink:#191714; --ink2:#55504a; --ink3:#868077;
+    --rule:#ded7cc; --rule2:#eee9e1; --accent:#9c4f1f;
+    --sans:'Archivo',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+    --shadow:0 1px 2px rgba(25,23,20,.05),0 10px 30px -14px rgba(25,23,20,.22);
+  }
+  @media (prefers-color-scheme:dark){ :root{
+    --paper:#141317; --raised:#1c1b21; --ink:#eae6df; --ink2:#a9a299; --ink3:#7d766d;
+    --rule:#2e2c34; --rule2:#252329; --accent:#e8a33d;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px -16px rgba(0,0,0,.75);
+  }}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1060px;margin:0 auto;padding-block:44px 64px;padding-left:20px;padding-right:20px}
+  h1,h2{text-wrap:balance;margin:0;line-height:1.14}
+  p{margin:0}
+  a{color:var(--accent)}
+  code,.m{font-family:var(--mono);font-size:.92em}
+
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin:0 0 13px}
+  h1{font-size:clamp(28px,5vw,42px);font-weight:700;letter-spacing:-.02em}
+  .lede{margin-top:16px;max-width:60ch;font-size:16.5px;color:var(--ink2)}
+
+  .canvaswrap{margin-top:28px;border:1px solid var(--rule);border-radius:6px;overflow:hidden;
+    background:var(--raised);box-shadow:var(--shadow)}
+  canvas{display:block;width:100%;height:auto;cursor:grab;touch-action:none}
+  canvas:active{cursor:grabbing}
+  .hint{font-family:var(--mono);font-size:11px;color:var(--ink3);padding:9px 14px;
+    border-top:1px solid var(--rule2);letter-spacing:.04em;display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+  .row{margin-top:14px;display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+  .seg{display:inline-flex;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+  .seg button{appearance:none;border:0;background:transparent;color:var(--ink2);
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;padding:7px 15px;cursor:pointer}
+  .seg button+button{border-left:1px solid var(--rule)}
+  .seg button[aria-pressed="true"]{background:var(--accent);color:var(--paper);font-weight:700}
+  .btn{appearance:none;border:1px solid var(--rule);background:transparent;color:var(--ink2);
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;padding:7px 14px;border-radius:3px;cursor:pointer}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  details{margin-top:14px;border:1px solid var(--rule2);border-radius:3px;background:var(--raised)}
+  summary{cursor:pointer;padding:11px 15px;font-family:var(--mono);font-size:11.5px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+  summary::marker{color:var(--ink3)}
+  .panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:1px;
+    background:var(--rule2);border-top:1px solid var(--rule2)}
+  .ctl{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--paper)}
+  .ctl-l{flex:1 1 auto;font-size:13px;color:var(--ink2)}
+  .ctl-v{font-family:var(--mono);font-size:12px;color:var(--ink);min-width:34px;text-align:right;font-variant-numeric:tabular-nums}
+  .ctl input[type=range]{flex:0 0 104px;accent-color:var(--accent)}
+
+  .stats{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:1px;background:var(--rule2);border:1px solid var(--rule2);border-radius:3px;overflow:hidden}
+  .stat{background:var(--paper);padding:14px 16px}
+  .stat .v{font-family:var(--mono);font-size:24px;font-weight:700;line-height:1.2;font-variant-numeric:tabular-nums}
+  .stat .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-top:3px}
+
+  .legend{margin-top:40px;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+  .legend h2{font-size:13px;font-weight:600;padding:13px 16px;border-bottom:1px solid var(--rule);background:var(--raised)}
+  .legend dl{margin:0;display:grid;grid-template-columns:minmax(140px,200px) 1fr}
+  .legend dt{font-family:var(--mono);font-size:12px;color:var(--ink);font-weight:500;padding:11px 16px;border-top:1px solid var(--rule2)}
+  .legend dd{margin:0;font-size:14px;color:var(--ink2);padding:11px 16px;border-top:1px solid var(--rule2)}
+  .legend dt:first-of-type,.legend dl>dt:first-child+dd{border-top:0}
+
+  footer{margin-top:52px;border-top:1px solid var(--rule);padding-top:22px;
+    display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:baseline}
+  footer p{font-size:13.5px;color:var(--ink2);max-width:58ch}
+  footer .links{font-family:var(--mono);font-size:12px;letter-spacing:.06em}
+  .fallback{padding:44px 20px;text-align:center;color:var(--ink2);font-size:14px}
+
+  @media (max-width:640px){
+    .wrap{padding-block:30px 48px}
+    .legend dl{grid-template-columns:1fr}
+    .legend dd{padding-top:0;border-top:0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">github.com/navidabdi</p>
+    <h1>Navidabdi-Straße</h1>
+    <p class="lede">A corner of Berlin built out of a GitHub history. One building per year,
+      height set by that year's contributions — so the street is a decade of work you can walk
+      down. <strong>Drag to orbit, scroll to zoom.</strong></p>
+  </header>
+
+  <div class="canvaswrap">
+    <canvas id="stage" width="1600" height="900"
+      aria-label="Interactive 3D model of a Berlin street corner, with one building per year of GitHub contributions"></canvas>
+    <div class="hint">
+      <span>Drag to orbit · scroll to zoom</span>
+      <span id="stamp"></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <span class="seg" role="group" aria-label="Time of day">
+      <button id="t-night" type="button" aria-pressed="true">Night</button>
+      <button id="t-day" type="button" aria-pressed="false">Day</button>
+    </span>
+    <button class="btn" id="b-rain" type="button" aria-pressed="true">Rain on</button>
+    <button class="btn" id="b-motion" type="button" aria-pressed="true">Motion on</button>
+    <button class="btn" id="b-wide" type="button">Wide street</button>
+    <button class="btn" id="b-low" type="button">Street level</button>
+    <button class="btn" id="b-reset" type="button">Reset view</button>
+  </div>
+
+  <details>
+    <summary>Rebuild the street</summary>
+    <div class="panel" id="panel"></div>
+  </details>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="legend">
+    <h2>Every object carries a number</h2>
+    <dl>
+      <dt>The buildings</dt><dd>One per year. Height is that year's contribution total, so the tallest block is the busiest year.</dd>
+      <dt>Lit windows</dt><dd>Scale with each building's height. A few glow GitHub green rather than lamp-yellow.</dd>
+      <dt>Ampelmännchen</dt><dd>The status light — green, and the plate above says what it means. The figures are the East Berlin ones.</dd>
+      <dt>Street sign</dt><dd>Berlin's white enamel plate: the street, the postal district, and house numbers running <span class="m">1–46</span>, which is the public repository count.</dd>
+      <dt>U-Bahn plate</dt><dd>The year the account opened.</dd>
+      <dt>S-Bahn plate</dt><dd>Stars earned across public repositories.</dd>
+      <dt>Litfaßsäule</dt><dd>The advertising column was invented in Berlin, so it carries the advertising: the profile view count.</dd>
+      <dt>Fernsehturm</dt><dd>Alexanderplatz, with its aviation beacon still blinking.</dd>
+      <dt>The M10</dt><dd>A tram on rails set into the asphalt, running the length of the street.</dd>
+    </dl>
+  </section>
+
+  <footer>
+    <p>Rebuilt every Monday from the GitHub API. The profile page itself shows a
+      pre-rendered SVG of the same scene — a README is sanitised, so no script survives it,
+      which is why the interactive version lives here.</p>
+    <p class="links"><a href="https://github.com/navidabdi">← back to the profile</a></p>
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="city.js"></script>
+<script>
+(function () {
+  var canvas = document.getElementById('stage');
+  if (typeof THREE === 'undefined' || !window.CITY) {
+    canvas.parentNode.innerHTML =
+      '<p class="fallback">This page needs WebGL, which your browser could not start. ' +
+      'The same scene is on <a href="https://github.com/navidabdi">the profile</a> as a still image.</p>';
+    return;
+  }
+  var C = window.CITY;
+
+  function start() {
+    C.init(canvas);
+    C.attachOrbit(canvas);
+    C.buildControls(document.getElementById('panel'));
+    renderStats();
+
+    var nightBtn = document.getElementById('t-night');
+    var dayBtn = document.getElementById('t-day');
+    function setTheme(mode) {
+      C.S.theme = mode;
+      nightBtn.setAttribute('aria-pressed', String(mode === 'night'));
+      dayBtn.setAttribute('aria-pressed', String(mode === 'day'));
+      C.refreshLights();
+      C.rebuild();
+    }
+    nightBtn.addEventListener('click', function () { setTheme('night'); });
+    dayBtn.addEventListener('click', function () { setTheme('day'); });
+
+    function toggle(id, key, on, off, after) {
+      var b = document.getElementById(id);
+      b.addEventListener('click', function () {
+        C.S[key] = !C.S[key];
+        b.setAttribute('aria-pressed', String(C.S[key]));
+        b.textContent = C.S[key] ? on : off;
+        if (after) after();
+      });
+    }
+    toggle('b-rain', 'rain', 'Rain on', 'Rain off', function () { C.rebuild(); });
+    toggle('b-motion', 'motion', 'Motion on', 'Motion off');
+
+    function apply(v) {
+      Object.keys(v).forEach(function (k) { C.S[k] = v[k]; });
+      C.rebuild(); C.placeCamera();
+      C.buildControls(document.getElementById('panel'));
+    }
+    document.getElementById('b-wide').addEventListener('click', function () {
+      apply({ spacing: 17, footprint: 6.4, streetWidth: 18, camDist: 132, camHeight: 34, camAngle: 22, fov: 34 });
+    });
+    document.getElementById('b-low').addEventListener('click', function () {
+      apply({ spacing: 14, footprint: 7, streetWidth: 15, camDist: 74, camHeight: 9, camAngle: 40, fov: 46 });
+    });
+    document.getElementById('b-reset').addEventListener('click', function () {
+      apply({ spacing: 12, footprint: 7.2, maxHeight: 34, streetWidth: 13,
+              camDist: 96, camHeight: 27, camAngle: 26, fov: 38 });
+    });
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      C.S.motion = false;
+      var b = document.getElementById('b-motion');
+      b.setAttribute('aria-pressed', 'false');
+      b.textContent = 'Motion off';
+    }
+  }
+
+  function renderStats() {
+    var d = C.getData();
+    var fmt = function (v) { return Number(v).toLocaleString('en-US'); };
+    var best = d.byYear.reduce(function (a, b) { return b[1] > a[1] ? b : a; });
+    var latest = d.byYear[d.byYear.length - 1];
+    var rows = [
+      [fmt(d.contributions), 'contributions'],
+      [fmt(latest[1]), 'in ' + latest[0]],
+      [fmt(best[1]), 'best year · ' + best[0]],
+      [fmt(d.repos), 'public repos'],
+      [fmt(d.stars), 'stars'],
+      [fmt(d.views), 'profile views'],
+    ];
+    document.getElementById('stats').innerHTML = rows.map(function (r) {
+      return '<div class="stat"><div class="v">' + r[0] + '</div><div class="k">' + r[1] + '</div></div>';
+    }).join('');
+    if (d.updated) {
+      document.getElementById('stamp').textContent = 'data from ' + d.updated;
+    }
+  }
+
+  // Try the weekly data file; fall back to the figures baked into city.js.
+  fetch('data.json', { cache: 'no-cache' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (j) { if (j) C.setData(j); })
+    .catch(function () { /* baked fallback is fine */ })
+    .then(start, start);
+})();
+</script>
+</body>
+</html>

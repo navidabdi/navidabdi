@@ -4,6 +4,11 @@
   <img alt="Navidabdi-Straße, 10405 Berlin — a street built from my GitHub history: one building per year, height set by contributions" src="assets/berlin-night.svg" width="880">
 </picture>
 
+<p align="center">
+  <a href="https://navidabdi.github.io/navidabdi/"><b>&#9654;&nbsp; Walk down the street in 3D</b></a>
+  &nbsp;&middot;&nbsp; drag to orbit, rebuild it with the sliders
+</p>
+
 ## Hi, I'm Nabi
 
 Independent software engineer. I build for the web — mostly PHP and WordPress, with
