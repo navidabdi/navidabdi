@@ -48,7 +48,7 @@ or why your build step is slower than it needs to be.
 
 <sub>
 
-The header is one SVG, redrawn daily by [a GitHub Action](.github/workflows/profile.yml)
+The header is one SVG, redrawn every Monday by [a GitHub Action](.github/workflows/profile.yml)
 from live API data — no third-party image services, no secrets, nothing that can rate-limit
 it. Ten buildings, one per year. The Ampelmännchen is my status light, the Litfaßsäule
 carries the view count, and the M10 runs on rails set into the asphalt. It animates once on
