@@ -1,6 +1,6 @@
 name: Profile header
 
-# Redraws the Berlin street scene from live GitHub data once a day.
+# Redraws the Berlin street scene from live GitHub data once a week.
 #
 # No secret is needed. "Include private contributions on my profile" is switched on,
 # so the contribution totals are public and the built-in GITHUB_TOKEN can read them.
@@ -8,7 +8,14 @@ name: Profile header
 
 on:
   schedule:
-    - cron: '17 4 * * *'
+    # Mondays, 04:17 UTC. The odd minute is deliberate: GitHub delays or drops
+    # schedules that land on the hour, when everyone else's are queued.
+    #
+    # A weekly run still commits every week, because reading the komarev badge
+    # nudges its own counter and the view figure therefore always differs. That
+    # keeps the repository active, so the schedule never hits GitHub's 60-day
+    # auto-disable — which is what the old `dummy commit` entries were for.
+    - cron: '17 4 * * 1'
   workflow_dispatch:
   push:
     branches: [master]
