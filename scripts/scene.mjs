@@ -40,10 +40,10 @@ const PALETTE = {
   },
 };
 
-const W = 880;
-const KX = 1.12, KY = 0.13;   // along the street
-const DX = 0.50, DY = 0.62;   // into the scene — steeper, so the road has a near kerb
-const SP = 52, FP = 42, MAXH = 150;
+const W = 960;
+const KX = 1.12, KY = 0.05;   // along the street
+const DX = 0.42, DY = 1.05;   // into the scene — deep enough to separate the bands
+const SP = 66, FP = 40, MAXH = 160;
 
 export function scene(D, t) {
   const c = PALETTE[t];
@@ -60,13 +60,13 @@ export function scene(D, t) {
 
   const xs = towers.flatMap(o => [pr(o.x, FP, 0)[0], pr(o.x + FP, 0, 0)[0]]);
   const OX = (W - (Math.max(...xs) - Math.min(...xs))) / 2 - Math.min(...xs);
-  const OY = 196;
+  const OY = 218;
   const P = (wx, wy, wz) => { const [a, b] = pr(wx, wy, wz); return [+(a + OX).toFixed(1), +(b + OY).toFixed(1)]; };
   const poly = (pts) => pts.map(q => q.join(',')).join(' ');
 
-  const X_LO = -96, X_HI = towers[towers.length - 1].x + FP + 96;
-  const Y_PAVE = FP, Y_KERB = 62, Y_BIKE = 66, Y_LANE = 78, Y_ROAD = 116, Y_NEAR = 120, Y_FRONT = 150;
-  const Y_FURN = 138;   // where the street furniture stands, on the near pavement
+  const X_LO = -150, X_HI = towers[towers.length - 1].x + FP + 150;
+  const Y_PAVE = FP, Y_KERB = 56, Y_BIKE = 60, Y_LANE = 74, Y_ROAD = 116, Y_NEAR = 120, Y_FRONT = 152;
+  const Y_FURN = 140;   // where the street furniture stands, on the near pavement
 
   /* ---------- sky ---------- */
   let stars = '';
@@ -90,7 +90,7 @@ export function scene(D, t) {
     + cloud(-460, 32, .9, 120, 62, night ? .16 : .7);
 
   /* ---------- Fernsehturm ---------- */
-  const FT_X = 838, FT_BASE = 316;
+  const FT_X = 902, FT_BASE = 340;
   const turm = `<g class="ft">
 <polygon points="${FT_X - 13},${FT_BASE} ${FT_X + 13},${FT_BASE} ${FT_X + 5},142 ${FT_X - 5},142" fill="${c.turm}"/>
 <polygon points="${FT_X - 13},${FT_BASE} ${FT_X - 5},142 ${FT_X - 1},142 ${FT_X - 4},${FT_BASE}" fill="${c.far}" opacity=".55"/>
@@ -171,8 +171,8 @@ export function scene(D, t) {
   /* ---------- street ---------- */
   const band = (y0, y1, fill) => `<polygon points="${poly([P(X_LO, y0, 0), P(X_HI, y0, 0), P(X_HI, y1, 0), P(X_LO, y1, 0)])}" fill="${fill}"/>`;
   let dashes = '';
-  for (let x = X_LO + 20; x < X_HI; x += 46) {
-    const a = P(x, 97, 0), b = P(x + 24, 97, 0);
+  for (let x = X_LO + 20; x < X_HI; x += 54) {
+    const a = P(x, 96, 0), b = P(x + 26, 96, 0);
     dashes += `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${c.roadLine}" stroke-width="2" stroke-linecap="round" opacity=".7"/>`;
   }
   // Tram rails: two grooved lines set into the asphalt, not sleepers on ballast.
@@ -192,7 +192,7 @@ export function scene(D, t) {
     + band(Y_LANE, Y_ROAD, c.road) + dashes
     + band(Y_ROAD, Y_NEAR, c.kerb)
     + band(Y_NEAR, Y_FRONT, c.pave)
-    + rail(83) + rail(91);
+    + rail(85) + rail(97);
 
   /* ---------- street furniture (billboard sprites on the pavement) ---------- */
   const at = (wx, wy) => { const q = P(wx, wy, 0); return `translate(${q[0]} ${q[1]})`; };
@@ -258,7 +258,7 @@ export function scene(D, t) {
   <rect x="-6.4" y="1.8" width="3" height="6.2" rx="1" transform="rotate(26 -5 5)"/>
   <rect x="1.8" y="1.6" width="3" height="6.4" rx="1" transform="rotate(-16 3.3 4.8)"/>
  </g></g>
-<rect x="-56" y="-142" width="112" height="18" rx="2" fill="${c.neonD}" opacity="${night ? .18 : .24}" stroke="${c.neonD}" stroke-width="1" stroke-opacity=".6"/>
+<rect x="-58" y="-143" width="116" height="20" rx="3" fill="${night ? '#08160d' : '#eef8f1'}" stroke="${c.neonD}" stroke-width="1.2"/>
 <text x="0" y="-129" class="statusTxt">OPEN TO COLLAB</text>`);
 
   // Litfaßsäule — the advertising column, a Berlin invention. Carries the view count.
@@ -294,8 +294,8 @@ ${counter(D.views, 0, -44, 'posterV', 2.6, 12, 1.5)}
  <rect x="-45" y="-27" width="17" height="13" rx="1.5"/></g>
 ${night ? `<ellipse cx="-17" cy="-42" rx="62" ry="46" fill="url(#lampG)" class="glow"/>` : ''}`);
 
-  const furniture = spati(0, 1.85) + streetSign(140, 1.95) + ampel(240, 2.05)
-    + lamp(310, 2.15) + ubahn(390, 2.3) + sbahn(480, 2.4) + litfass(555, 2.5) + lamp(630, 2.6);
+  const furniture = spati(15, 1.85) + streetSign(145, 1.95) + ampel(250, 2.05)
+    + lamp(330, 2.15) + ubahn(410, 2.3) + sbahn(510, 2.4) + litfass(590, 2.5) + lamp(670, 2.6);
 
   /* ---------- vehicles ---------- */
   const travel = (id, x0, x1, wy, dur, delay) => {
@@ -304,8 +304,8 @@ ${night ? `<ellipse cx="-17" cy="-42" rx="62" ry="46" fill="url(#lampG)" class="
              style: `animation-name:${id};animation-duration:${dur}s;animation-delay:${delay}s` };
   };
 
-  const bikeT = travel('bikemv', X_HI + 90, X_LO - 110, 71, 13, 5.4);
-  const tramT = travel('trammv', X_HI + 230, X_LO - 230, 94, 19, 4.2);
+  const bikeT = travel('bikemv', X_HI + 110, X_LO - 130, 67, 14, 5.4);
+  const tramT = travel('trammv', X_HI + 260, X_LO - 260, 96, 21, 4.2);
 
 
   let tramWin = '';
@@ -326,7 +326,7 @@ ${night ? `<circle cx="-104" cy="-24" r="3" fill="#fff3c4"/><ellipse cx="-126" c
 </g>`;
 
   // A Trabant parked at the kerb, in the two-box shape everyone recognises.
-  const trabiPos = P(150, 112, 0);
+  const trabiPos = P(190, 114, 0);
   const trabi = `<g transform="translate(${trabiPos[0]} ${trabiPos[1]})"><g class="lab" style="animation-delay:1.75s">
 <path d="M-34 -4v-11q0 -3 3 -3h5l7 -11q1.5 -2.5 4.5 -2.5h19q3 0 4.5 2.5l7 11h5q3 0 3 3v11q0 3 -3 3h-52q-3 0 -3 -3z" fill="${c.trabi}" stroke="${c.trabiDark}" stroke-width="1"/>
 <path d="M-15 -18l5.5 -8.5h8v8.5zM-4.5 -18v-8.5h9l5.5 8.5z" fill="${c.busGlass}"/>
@@ -337,7 +337,7 @@ ${night ? `<circle cx="-104" cy="-24" r="3" fill="#fff3c4"/><ellipse cx="-126" c
 </g></g>`;
 
   // Pigeons on the pavement — they peck, then scatter every few seconds.
-  const pigPos = P(200, 145, 0);
+  const pigPos = P(350, 152, 0);
   let pigeons = '';
   [[0, 0, 0], [15, -4, 1], [-13, 3, 2], [28, 2, 3]].forEach(([px, py, k]) => {
     pigeons += `<g class="pigeon p${k}" style="animation-delay:${(4 + k * 0.12).toFixed(2)}s">`
@@ -361,25 +361,25 @@ ${night ? `<circle cx="-104" cy="-24" r="3" fill="#fff3c4"/><ellipse cx="-126" c
   // Reflections are cast straight down onto the carriageway from each light source,
   // so they line up with the lamp or sign that makes them.
   const roadAt = (sx) => {
-    const wx = (sx - OX + 97 * DX) / KX;
-    return wx * KY + 97 * DY + OY;
+    const wx = (sx - OX + 96 * DX) / KX;
+    return wx * KY + 96 * DY + OY;
   };
   const wet = (sx, col, w, h, d) =>
     `<ellipse cx="${sx.toFixed(1)}" cy="${roadAt(sx).toFixed(1)}" rx="${w}" ry="${h}" fill="${col}"`
     + ` opacity="${night ? .3 : .14}" filter="url(#soft)" class="wet" style="animation-delay:${d}s"/>`;
   const reflections = [
-    wet(P(310, Y_FURN, 0)[0], c.lampGlow, 11, 17, 0),
-    wet(P(630, Y_FURN, 0)[0], c.lampGlow, 11, 17, .7),
-    wet(P(0, Y_FURN, 0)[0], c.spatiLit, 15, 15, 1.3),
+    wet(P(330, Y_FURN, 0)[0], c.lampGlow, 12, 19, 0),
+    wet(P(670, Y_FURN, 0)[0], c.lampGlow, 12, 19, .7),
+    wet(P(15, Y_FURN, 0)[0], c.spatiLit, 15, 15, 1.3),
     wet(nA[0] + 46, c.neonA, 9, 19, .4),
     wet(nB[0] + 36, c.neonB, 8, 19, 1.1),
     wet(nC[0] + 36, c.neonD, 8, 16, 1.8),
   ].join('');
 
   let rain = '';
-  for (let i = 0; i < 165; i++) {
+  for (let i = 0; i < 215; i++) {
     const rx = ((i * 137.9) % (W + 160)) - 80;
-    const ry = ((i * 61.3) % 360) - 24;
+    const ry = ((i * 61.3) % 430) - 24;
     const len = 6 + (i % 4) * 2.6;
     const dur = (0.52 + ((i * 7) % 9) * 0.045).toFixed(2);
     rain += `<line x1="${rx.toFixed(1)}" y1="${ry.toFixed(1)}" x2="${(rx - len * 0.28).toFixed(1)}" y2="${(ry + len).toFixed(1)}"`
@@ -388,7 +388,7 @@ ${night ? `<circle cx="-104" cy="-24" r="3" fill="#fff3c4"/><ellipse cx="-126" c
   }
 
   /* ---------- data band ---------- */
-  const BY = 396;
+  const BY = 444;
   let plaques = '';
   towers.forEach(o => {
     const lx = P(o.x + FP / 2, FP / 2, 0)[0];
@@ -405,7 +405,7 @@ ${night ? `<circle cx="-104" cy="-24" r="3" fill="#fff3c4"/><ellipse cx="-126" c
     kpi += `<g class="lab" style="animation-delay:${(3.0 + i * 0.1).toFixed(2)}s">`
       + `<text x="${kx}" y="${BY + 62}" class="kv">${v}</text>`
       + `<text x="${kx}" y="${BY + 78}" class="kl">${l}</text></g>`;
-    kx += 168;
+    kx += 184;
   });
 
   const H = BY + 100;
